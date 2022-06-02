@@ -18,6 +18,17 @@ class Telefone
      */
     
     private $numero;
+    /**
+     * @ManyToOne(targetEntity="Aluno");
+     *
+     */
+    
+    private $aluno;
+    public function getAluno(): Aluno
+    {
+        return $this->aluno;
+    }
+
     public function getId():int
     {
         return $this->id;
@@ -38,5 +49,10 @@ class Telefone
         $this->numero = $numero;
     }
 
+    public function setAluno(Aluno $aluno):self
+    {
+        $this->aluno = $aluno;
+        return $this;
+    }
 }
 
