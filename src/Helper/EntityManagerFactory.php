@@ -8,11 +8,15 @@ use Doctrine\ORM\Tools\Setup;
 
 
 class EntityManagerFactory{
+    /**
+     * @return EntityManagerInterface
+     * @throws \Doctrine\ORM\ORMException
+     */
 
     public function getEntityManager():EntityManagerInterface   
     {
-        $root = __DIR__."/../../";
-        $confi = Setup::createAnnotationMetadataConfiguration([$root],true);
+        $root = __DIR__."/../..";
+        $confi = Setup::createAnnotationMetadataConfiguration([$root.'/src'],true);
         $connection =[
             'driver'=>'pdo_sqlite',
             'path'=> $root.'var/data/banco.sqlite'];

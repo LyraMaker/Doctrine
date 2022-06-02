@@ -12,10 +12,10 @@ $entityManager = $entityManagerFactory->getEntityManager();
 $aluno = new Aluno();
 $entityManager->persist($aluno);
 
-$nome = getopt('n:'); 
+$nome = $argv[1];
 
 
-$aluno->setNome($nome['n']);
+$aluno->setNome($nome);
 
 $entityManager->flush();
 
