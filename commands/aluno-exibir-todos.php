@@ -8,8 +8,6 @@ use Alura\Doctrine\Entity\Aluno;
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
-$vlrId = getopt('i:'); 
-
 $alunoRepository = $entityManager->getRepository(Aluno::class);
 
 $alunos = $alunoRepository->findAll();
