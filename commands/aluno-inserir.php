@@ -1,8 +1,7 @@
 <?php
-
 namespace Alura\Doctrine\commands;
 
-require_once __DIR__."/../../vendor/autoload.php";
+require_once __DIR__."/../vendor/autoload.php";
 
 use Alura\Doctrine\Helper\EntityManagerFactory;
 use Alura\Doctrine\Entity\Aluno;
@@ -10,11 +9,14 @@ use Alura\Doctrine\Entity\Aluno;
 $entityManagerFactory =new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
-$vlrId = $argv[1];
+$aluno = new Aluno();
+$entityManager->persist($aluno);
 
-$aluno = $entityManager->getReference(Aluno::class,$vlrId);
+$nome = getopt('n:'); 
 
-$entityManager->remove($aluno);
+
+$aluno->setNome($nome['n']);
+
 $entityManager->flush();
 
 ?>

@@ -36,12 +36,12 @@ class Aluno
         return $this->nome;
     }
 
-    public function setId(int $id) 
+    public function setId(int $id)
     {
         $this->id = $id;
     }
 
-    public function setNome(string $nome) 
+    public function setNome(string $nome)
     {
         $this->nome = $nome;
     }

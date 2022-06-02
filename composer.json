@@ -1,11 +1,12 @@
-{
-    "require": {
-        "doctrine/orm": "*",
-        "doctrine/cache": "1.11" 
-    },
-    "autoload": {
-        "psr-4": {
-            "Alura\\Doctrine\\": "src/"
-        }
-    }
+{ "require" : 
+	{ "doctrine/orm" : "*",
+		 "doctrine/cache" : "1.11"
+	},
+	"autoload" :
+	 { "psr-4" :
+		 { 
+			 "Alura\\Doctrine\\Entity\\" : "src/Entity/", 
+			 "Alura\\Doctrine\\Helper\\" : "src/Helper/"
+		}
+	}
 }
