@@ -10,11 +10,12 @@ $entityManager = $entityManagerFactory->getEntityManager();
 
 $alunoRepository = $entityManager->getRepository(Aluno::class);
 
-$gabrielLyra = $alunoRepository->findBy([
+$alunoBuscado = $alunoRepository->findBy([
     'id' => $argv[1]
 ]); 
 
-var_dump($gabrielLyra);
+echo"----------------- \n Id   | {$alunoBuscado[0]->getId()} \n Nome | {$alunoBuscado[0]->getNome()} \n
+";
 
 
 ?>

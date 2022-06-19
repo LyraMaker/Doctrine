@@ -10,9 +10,12 @@ $entityManager = $entityManagerFactory->getEntityManager();
 
 $alunoRepository = $entityManager->getRepository(Aluno::class);
 
-$alunos = $alunoRepository->findAll();
+$alunoBuscado = $alunoRepository->findAll();
 
-var_dump($alunos);
-
+for($i=0;$i < count($alunoBuscado); $i++){
+    echo"----------------- \n Id   | {$alunoBuscado[$i]->getId()} \n Nome | {$alunoBuscado[$i]->getNome()}
+";
+}
+echo"----------------- \n ";
 
 ?>
