@@ -2,3 +2,7 @@ vendor
 .buildpath
 .project
 .settings
+.composer.lock
+.composer.phar
+.dbeaver/
+.settings/

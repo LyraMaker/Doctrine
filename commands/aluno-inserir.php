@@ -11,12 +11,9 @@ $entityManagerFactory =new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
 $aluno = new Aluno();
-
-
-$entityManager->persist($aluno);
-
-
 $nome = $argv[1];
+
+$aluno->setNome($nome);
 
 for($i = 2; $i <$argc; $i++){
     $telefone = new Telefone();
@@ -24,10 +21,13 @@ for($i = 2; $i <$argc; $i++){
     $numero = $argv[$i];
     
     $telefone->setNumero($numero);
+    
+
     $aluno->addTelefones($telefone);
 }
 
-$aluno->setNome($nome);
+$entityManager->persist($aluno);
+$entityManager->persist($telefone);
 
 $entityManager->flush();
 
