@@ -2,7 +2,7 @@
 namespace Alura\Doctrine\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-
+use Alura\Doctrine\Entity\Curso;
 
 /**
  *  
@@ -26,6 +26,11 @@ class Aluno
      * @OneToMany(targetEntity="Telefone",mappedBy="aluno",cascade={"remove", "persist"})
      */
     private $telefones;
+    /**
+     * 
+     * @ManyToMany(targetEntity="Curso", mappedBy="alunos")
+     */
+    private $cursos;
     
     public function __construct(){
       $this->telefones = new ArrayCollection();
@@ -60,6 +65,17 @@ class Aluno
     public function addTelefones(Telefone $telefone):self{
         $this->telefones->add($telefone);
         $telefone->setAluno($this);
+        
+        return $this;
+    }
+    
+    public function addCurso(Curso $curso):self{
+        if($this->cursos->contains($curso)){
+            return $this;
+        }
+        
+        $this->cursos->add($curso);
+        $curso->addAluno($this);
         
         return $this;
     }
