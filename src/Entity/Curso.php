@@ -23,7 +23,7 @@ class Curso{
     private $nome;
     /**
      * 
-     * @ManyToMAny(targetEntity="Aluno",inversedBy="cursos")
+     * @ManyToMany(targetEntity="Aluno",inversedBy="cursos")
      */
     private $alunos;
     public function __construct(){
