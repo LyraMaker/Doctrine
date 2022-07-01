@@ -12,16 +12,18 @@ use Alura\Doctrine\Entity\Telefone;
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
-$alunoRepository = $entityManager->getRepository(Aluno::class);
+$alunoBuscado = $entityManager->find(Aluno::class,$argv[1]);
 
-$alunoBuscado = $alunoRepository->findBy([
-    'id' => $argv[1]
-]); 
+for($i = 2; $i < $argc; $i++){
+    $numero = $argv[$i];
+    
+    $telefone = new Telefone();
+    $telefone->setNumero($numero);
+    
+    $alunoBuscado->addTelefones($telefone); 
+}
 
-$numero = $argv[2];
 
-$telefone = new Telefone();
-$telefone->setNumero($numero);
+$entityManager->flush();
 
-$alunoBuscado[0]->addTelefones($telefone);
 ?>

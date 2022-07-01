@@ -19,7 +19,7 @@ class Telefone
     
     private $numero;
     /**
-     * @ManyToOne(targetEntity="Aluno");
+     * @ManyToOne(targetEntity="Aluno",cascade={"remove", "persist"});
      *
      */
     
