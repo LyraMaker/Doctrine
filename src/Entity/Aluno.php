@@ -36,7 +36,12 @@ class Aluno
       $this->telefones = new ArrayCollection();
       
     }
-
+    
+    public function getCursos():Collection
+    {
+        return $this->cursos;
+    }
+    
     public function getId() :int
     {
         return $this->id;
@@ -78,6 +83,11 @@ class Aluno
         $curso->addAluno($this);
         
         return $this;
+    }
+    
+    public function setCursos($cursos):self
+    {
+        $this->cursos = $cursos;
     }
     
 }
